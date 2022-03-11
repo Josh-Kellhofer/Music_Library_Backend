@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import DisplayEntries from './Components/DisplayEntries/DisplayEntries'
 
 
 function App() {
 
-const [entries, setEntries] = useState([{id: 1, Title: 'new', Artist: 'You', Album: 'Lovin It', Release_Date: '01-01-2001', Genre: 'Pop'}])
+const [entries, setEntries] = useState([{entry_number: '1', title: 'new', artist: 'You', album: 'Lovin It', release_date: '01-01-2001', genre: 'Pop'}])
 
 // const [title, setTitle] = useState([{}]) //state variables for form
 // const [artist, setArtist] = useState([]) //state variables for form
@@ -14,28 +15,8 @@ const [entries, setEntries] = useState([{id: 1, Title: 'new', Artist: 'You', Alb
 
   return (
     <div>
-     <table>
-       <thead>
-        <tr>
-          <th>Id</th>
-          <th>Title</th>
-          <th>Artist</th>
-          <th>Album</th>
-          <th>Release Date</th>
-          <th>Genre</th>
-        </tr>
-       </thead>
-       <tbody>
-         <tr>
-           <td>1</td>
-           <td>1</td>
-           <td>1</td>
-           <td>1</td>
-           <td>1</td>
-           <td>1</td>
-         </tr>
-       </tbody>
-     </table>
+      {/* Returning function DisplayEntries from DisplayEntries.jsx We need to hand down entries from DisplayEntries.jx here utilizing props. parentEntries (or entries in const above) is now added to props in DisplayEntries.jsx*/}
+     <DisplayEntries parentEntries={entries} /> 
     </div>
   );
 }
