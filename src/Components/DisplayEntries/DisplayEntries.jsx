@@ -19,10 +19,7 @@ const DisplayEntries = (props) => {
          {props.parentEntries.map((entry, index) => { 
            return (
              <tr>
-                {/* Possible numbering adding 1 */}
-                {/* <td>{entry.id +1}</td> */}
-
-                {/* Mapping over table and placing directly beneath <thead> which has visual text of each entry */}
+               {/* Mapping over table and placing directly beneath <thead> which has visual text of each entry */}
                <td>{index +1}</td>
                <td>{entry.title}</td>
                <td>{entry.artist}</td>
