@@ -9,6 +9,7 @@ const AddEntryForm = (props) => {
   const [releaseDate, setReleaseDate] = useState([]); //state variables for form
   const [genre, setGenre] = useState([]); //state variables for form
 
+  //Prevents browser from refreshing and allows inputted entries to be saved to console
   function handleSubmit(event) {
     event.preventDefault();
     let newEntry = {
@@ -19,6 +20,8 @@ const AddEntryForm = (props) => {
       genre: genre,
     };
     console.log(newEntry);
+    // Calling the App.js function AddNewEntry from App return line 22 AddEntryForm
+    props.addNewEntryProperty(newEntry)
   }
 
   return ( 
