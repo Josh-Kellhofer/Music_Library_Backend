@@ -46,7 +46,7 @@ const AddEntryForm = (props) => {
       <label>Genre</label>
         <input type='text' className='form-control' value={genre} onChange={(event) => setGenre(event.target.value)} />
        </div> 
-      <button type='submit' class='btn btn-primary' style={{'margin-top': '1em'}}>Add A Song</button>
+      <button type='submit' class='btn btn-primary' style={{'margin-top': '1em'}} onClick={() => handleSubmit}>Add A Song</button>
     </form>
    );
 }

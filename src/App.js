@@ -9,16 +9,17 @@ function App() {
 
   const [entries, setEntries] = useState([]);
 
-  function sendEntry(){
-    let entry = {
-      'title': 'Axios Style',
-      'album': 'Finding Axios',
-      'artist': 'Dev',
-      'release_date': '2022-03-16',
-      'genre': 'Coding',
-     }
-     createEntry(entry)
-  }
+  // function sendEntry(){
+  //   let entry = {
+  //     'title': 'Axios Style',
+  //     'album': 'Finding Axios',
+  //     'artist': 'Dev',
+  //     'release_date': '2022-03-16',
+  //     'genre': 'Coding',
+  //    }
+  //    console.log(entry)
+  //    createEntry(entry)
+  // }
 
   useEffect(() => {
     getAllEntries();
@@ -27,11 +28,13 @@ function App() {
   async function getAllEntries(){
     let response = await axios.get('http://127.0.0.1:8000/api/music/');
     setEntries(response.data)
+    console.log(response.data)
   }
 
   async function createEntry(createNewEntry){
     let response = await axios.post('http://127.0.0.1:8000/api/music/', createNewEntry);
-    // if(response.status === 201)
+    console.log(response.data)
+    if(response.status === 201)
       await getAllEntries();
     
   }
@@ -47,11 +50,11 @@ function App() {
 
 
 // Creating function to pass information up from child (AddEntryFrom, line 20) to parent (App) so the add button adds to the app (entries inputted)
-  function addNewEntry(entry) {
-  let tempEntries = [...entries, entry];
+  // function addNewEntry(entry) {
+  // let tempEntries = [...entries, entry];
   // Calling the whisperer (setEntries) and passing in tempEntries (an arrey with new entry; ... takes everything inside array to place in new array, not nested)
-  setEntries(tempEntries);
-}
+  // setEntries(tempEntries);
+// }
 
     return (
       // <div><h3>MUSIC LIST</h3></div>
@@ -66,7 +69,8 @@ function App() {
           <div className='border-box'>
             <div className='col-md-6'>
           {/* Instantiating AddEntryForm.jsx to create table visuals (elongated boxes for input). Also calling function addNewEntry with catcher variable*/}
-            <AddEntryForm createEntry={addNewEntry}/>
+            <AddEntryForm createEntry={createEntry}/>
+            {/* <button type='submit' className='btn btn-primary' style={{'margin-top': '1em'}} onClick={() => sendEntry}>Add A Song</button> */}
             </div>
           </div>
         </div>
