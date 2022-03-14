@@ -24,7 +24,7 @@ const DisplayEntries = (props) => {
                <td>{entry.title}</td>
                <td>{entry.artist}</td>
                <td>{entry.album}</td>
-               <td>{entry.releaseDate}</td>
+               <td>{entry.release_date}</td>
                <td>{entry.genre}</td>
              </tr>
            );

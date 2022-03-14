@@ -6,7 +6,7 @@ const AddEntryForm = (props) => {
   const [title, setTitle] = useState([]); //state variables for form
   const [artist, setArtist] = useState([]); //state variables for form
   const [album, setAlbum] = useState([]); //state variables for form
-  const [releaseDate, setReleaseDate] = useState([]); //state variables for form
+  const [release_date, setReleaseDate] = useState([]); //state variables for form
   const [genre, setGenre] = useState([]); //state variables for form
 
   //Prevents browser from refreshing and allows inputted entries to be saved to console
@@ -16,7 +16,7 @@ const AddEntryForm = (props) => {
       title: title,
       artist: artist,
       album: album,
-      releaseDate: releaseDate,
+      release_date: release_date,
       genre: genre,
     };
     console.log(newEntry);
@@ -40,7 +40,7 @@ const AddEntryForm = (props) => {
        </div> 
      <div className='form-group'>
       <label>Release Date</label>
-        <input type='date' className='form-control' value ={releaseDate} onChange={(event) => setReleaseDate(event.target.value)}/> 
+        <input type='date' className='form-control' value ={release_date} onChange={(event) => setReleaseDate(event.target.value)}/> 
        </div> 
      <div className='form-group'>
       <label>Genre</label>
