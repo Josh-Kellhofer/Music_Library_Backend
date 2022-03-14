@@ -21,7 +21,7 @@ const AddEntryForm = (props) => {
     };
     console.log(newEntry);
     // Calling the App.js function AddNewEntry from App return line 22 AddEntryForm
-    props.addNewEntryProperty(newEntry)
+    props.createEntry(newEntry)
   }
 
   return ( 

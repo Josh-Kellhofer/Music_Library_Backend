@@ -66,7 +66,7 @@ function App() {
           <div className='border-box'>
             <div className='col-md-6'>
           {/* Instantiating AddEntryForm.jsx to create table visuals (elongated boxes for input). Also calling function addNewEntry with catcher variable*/}
-            <AddEntryForm addNewEntryProperty={addNewEntry}/>
+            <AddEntryForm createEntry={addNewEntry}/>
             </div>
           </div>
         </div>
