@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import DisplayEntries from './Components/DisplayEntries/DisplayEntries';
 import AddEntryForm from './Components/AddEntry/AddEntryForm';
+import './App.css';
+import axios from 'axios';
+// import EntriesChartTracker from './Components/EntriesChartTracker/EntriesChartTracker';
 
 
 function App() {
@@ -15,12 +18,29 @@ function addNewEntry(entry) {
 }
 
   return (
-    <div>
-      {/* Returning function DisplayEntries from DisplayEntries.jsx We need to hand down entries from DisplayEntries.jx here utilizing props. parentEntries (or entries in const above) is now added to props in DisplayEntries.jsx*/}
-     <DisplayEntries parentEntries={entries} /> 
-     {/* Instantiating AddEntryForm.jsx to create table visuals (elongated boxes for input). Also calling function addNewEntry with catcher variable*/}
-     <AddEntryForm addNewEntryProperty={addNewEntry}/> 
+    // <div><h3>MUSIC LIST</h3></div>
+    
+    <div className='container-fluid'>
+      <div className='row'>
+        <div className='col-md-6'>
+         <div className='border-box'>
+          <DisplayEntries parentEntries={entries} /> 
+         </div>
+         <div><h3>ADD SONG TO LIST</h3></div>
+         <div className='border-box'>
+           <div className='col-md-6'>
+         {/* Instantiating AddEntryForm.jsx to create table visuals (elongated boxes for input). Also calling function addNewEntry with catcher variable*/}
+          <AddEntryForm addNewEntryProperty={addNewEntry}/>
+          </div>
+        </div>
+      </div>
     </div>
+        </div>
+         
+    
+
+
+    
   );
 }
         

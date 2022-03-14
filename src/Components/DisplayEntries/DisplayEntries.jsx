@@ -2,7 +2,7 @@
 
 const DisplayEntries = (props) => {
   return (
-    <table>
+    <table className='table'>
        <thead>
         <tr>
           {/* What you see in Table visually */}
