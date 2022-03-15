@@ -19,7 +19,7 @@ function App() {
   async function getAllEntries(){
     let response = await axios.get('http://127.0.0.1:8000/api/music/');
     setEntries(response.data);
-    setDisplayUsers(response.data);
+    // setDisplayUsers(response.data);
     console.log(response.data);
   }
 
@@ -32,7 +32,7 @@ function App() {
       else return false
     })
 
-    setDisplayUsers(matchingUsers)
+    setEntries(matchingUsers)
   };
 
   async function createEntry(createNewEntry){
@@ -49,7 +49,7 @@ function App() {
 
   // async function deleteEntry(deleteEntry){
   //   let response = await axios.delete('http://127.0.0.1:8000/api/music/', deleteEntry);
-  //   setEntries.delete
+  //   delete 
   // }
     // return (
     //   <div className="App">
