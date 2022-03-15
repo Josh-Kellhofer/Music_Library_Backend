@@ -5,3 +5,10 @@
   margin: 1em;
   padding: 1em;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 10rem 10rem 10rem;
+  grid-gap: 1rem;
+  background-color: aqua;
+}

@@ -3,33 +3,37 @@ import DisplayEntries from './Components/DisplayEntries/DisplayEntries';
 import AddEntryForm from './Components/AddEntry/AddEntryForm';
 import './App.css';
 import axios from 'axios';
+import SearchBar from './Components/SearchBar/SearchBar';
 
 
 function App() {
 
-  const [entries, setEntries] = useState([]);
+   const [entries, setEntries] = useState([]);
+   const [displayUsers, setDisplayUsers] = useState([]);
 
-  // function sendEntry(){
-  //   let entry = {
-  //     'title': 'Axios Style',
-  //     'album': 'Finding Axios',
-  //     'artist': 'Dev',
-  //     'release_date': '2022-03-16',
-  //     'genre': 'Coding',
-  //    }
-  //    console.log(entry)
-  //    createEntry(entry)
-  // }
 
   useEffect(() => {
     getAllEntries();
-  }, [])
+  }, []);
 
   async function getAllEntries(){
     let response = await axios.get('http://127.0.0.1:8000/api/music/');
-    setEntries(response.data)
-    console.log(response.data)
+    setEntries(response.data);
+    setDisplayUsers(response.data);
+    console.log(response.data);
   }
+
+  const filterUsers = (searchTerm) => {
+    console.log(searchTerm);
+    let matchingUsers = entries.filter((user) => {
+      if(user.title.toLowerCase().includes(searchTerm.toLowerCase())){
+        return true
+      }
+      else return false
+    })
+
+    setDisplayUsers(matchingUsers)
+  };
 
   async function createEntry(createNewEntry){
     let response = await axios.post('http://127.0.0.1:8000/api/music/', createNewEntry);
@@ -42,6 +46,11 @@ function App() {
   async function updateEntry(entryData, entryId){
     let response = await axios.put(`http://127.0.0.1:8000/api/music/${entryId}`, entryData)
   }
+
+  // async function deleteEntry(deleteEntry){
+  //   let response = await axios.delete('http://127.0.0.1:8000/api/music/', deleteEntry);
+  //   setEntries.delete
+  // }
     // return (
     //   <div className="App">
     //     <button onClick={() => sendEntry()}>Submit</button>
@@ -57,11 +66,16 @@ function App() {
 // }
 
     return (
-      // <div><h3>MUSIC LIST</h3></div>
-      
-      <div className='container-fluid'>
+      <div className='App'>
+      <div className='container'>
+        <div className='item 1'><SearchBar filterUsers={filterUsers} />
+        <setDisplayUsers users={displayUsers} />
+        </div>
+        
+        </div>     
+      {/* <div className='container-fluid'>
         <div className='row'>
-          <div className='col-md-6'>
+          <div className='col-md-6'> */}
           <div className='border-box'>
             <DisplayEntries parentEntries={entries} /> 
           </div>
@@ -74,12 +88,16 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
-          </div>
+      // </div>
+      // </div>
+      //     </div>
           );
         }
-              
+
+                    
       export default App;
+
+      
           
       
 
