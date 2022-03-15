@@ -29,6 +29,18 @@ function App() {
       if(user.title.toLowerCase().includes(searchTerm.toLowerCase())){
         return true
       }
+      else if(user.artist.toLowerCase().includes(searchTerm.toLowerCase())){
+        return true
+      }
+      else if(user.album.toLowerCase().includes(searchTerm.toLowerCase())){
+        return true
+      }
+      else if(user.release_date.toLowerCase().includes(searchTerm.toLowerCase())){
+        return true
+      }
+      else if(user.genre.toLowerCase().includes(searchTerm.toLowerCase())){
+        return true
+      }
       else return false
     })
 
