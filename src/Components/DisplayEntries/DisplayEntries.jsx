@@ -6,12 +6,12 @@ const DisplayEntries = (props) => {
        <thead>
         <tr>
           {/* What you see in Table visually */}
-          <th>Entry Number</th>
-          <th>Title</th>
-          <th>Artist</th>
-          <th>Album</th>
-          <th>Release Date</th>
-          <th>Genre</th>
+          <th><h5>Entry Number</h5></th>
+          <th><h5>Title</h5></th>
+          <th><h5>Artist</h5></th>
+          <th><h5>Album</h5></th>
+          <th><h5>Release Date</h5></th>
+          <th><h5>Genre</h5></th>
         </tr>
        </thead>
        <tbody>

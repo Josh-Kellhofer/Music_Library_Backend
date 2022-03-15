@@ -80,8 +80,12 @@ function App() {
     return (
       <div className='App'>
       <div className='container'>
-        <div className='item 1'><SearchBar filterUsers={filterUsers} />
+        <div className='item 1'>
+        <h2>MUSIC LIBRARY</h2>
+        
+          <SearchBar filterUsers={filterUsers} />
         <setDisplayUsers users={displayUsers} />
+        
         </div>
         
         </div>     
